@@ -5,13 +5,13 @@ import { NEXT_PUBLIC_URL, NEYNAR_API_KEY } from '../../config';
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();
 
-  const { isValid, message } = await getFrameMessage(body, { neynarApiKey: NEYNAR_API_KEY });
+  const { message } = await getFrameMessage(body, { neynarApiKey: NEYNAR_API_KEY });
 
   let state = {
     meet: false
   };
   try {
-    state = JSON.parse(decodeURIComponent(message.state?.serialized));
+    state = JSON.parse(decodeURIComponent(message?.state?.serialized || ''));
   } catch (e) {
     console.error(e);
   }
