@@ -1,5 +1,5 @@
 export const NFT_HOLDER = `
-query Holdings ($addresses: [String!]!, $tokenAddress: [String!]!) {
+query Holdings ($addresses: [Identity!]!, $tokenAddress: [Address!]!) {
     Ethereum: TokenBalances(
       input: {filter: {
         owner: {_in: $addresses}, 
