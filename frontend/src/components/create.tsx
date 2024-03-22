@@ -4,6 +4,7 @@ import { Header } from "./header"
 import { Select } from "./createFrame/select"
 import { Configure } from "./createFrame/configure"
 import { Pricing } from "./createFrame/pricing"
+import { Review } from "./createFrame/review"
 
 
 export function Create() {
@@ -41,6 +42,19 @@ export function Create() {
                 setAssetCondition={setAssetCondition}
                 setAssetElse={setAssetElse}
                 setDiscount={setDiscount}
+            />}
+            {step === 3 && <Review setStep={setStep}
+                mainImage={mainImage}
+                conditionImage={conditionImage}
+                elseImage={elseImage}
+                assetConditionPrice={assetConditionPrice}
+                assetElsePrice={assetElsePrice}
+                assetCondition={assetCondition}
+                assetElse={assetElse}
+                erc20Conditions={erc20Conditions}
+                nftConditions={nftConditions}
+                frameName={frameName}
+                discount={discount}
             />}
         </section>
     )
