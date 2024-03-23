@@ -7,7 +7,7 @@ export function Select({ setStep }: { setStep: (step: number) => void }) {
             <div className="flex flex-col justify-center">
               <h2 className="text-2xl font-bold mb-4">Select your template</h2>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the top story. Click the link to read more.
+                Select the type of frame you want to build. Each frame will allow users to take different actions
               </p>
             </div>
           </div>
@@ -19,7 +19,7 @@ export function Select({ setStep }: { setStep: (step: number) => void }) {
                 alt="Politics Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
-                src="/placeholder.svg"
+                src="/buy.jpg"
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
@@ -27,9 +27,9 @@ export function Select({ setStep }: { setStep: (step: number) => void }) {
                 width="600"
                 onClick={() => setStep(1)}
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Buy now</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Buy Frame</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the politics story. Click the link to read more.
+                This frame allows users to purchase an NFT or token directly from Farcaster
               </p>
             </div>
             <div>
@@ -37,16 +37,16 @@ export function Select({ setStep }: { setStep: (step: number) => void }) {
                 alt="Politics Story Image"
                 className="w-full h-64 object-cover object-center rounded-lg"
                 height="400"
-                src="/placeholder.svg"
+                src="/stake.jpg"
                 style={{
                   aspectRatio: "600/400",
                   objectFit: "cover",
                 }}
                 width="600"
               />
-              <h3 className="text-xl font-bold mb-2 mt-4">Staking</h3>
+              <h3 className="text-xl font-bold mb-2 mt-4">Staking Frame</h3>
               <p className="text-zinc-500 dark:text-zinc-400">
-                This is a brief summary of the politics story. Click the link to read more.
+                This frame allows users to stake a fixed amount on a protocol without leaving Farcaster
               </p>
             </div>
           </div>

@@ -21,13 +21,14 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const response = getFrameHtmlResponse({
     buttons: [
       {
+        action: 'link',
         label: `See transaction details`,
+        target: "https://sepolia.basescan.org/tx/0x082545081884b7b729d528c46e4988929b3f1a2a1735d833c3ac21d589132704"
       },
     ],
     image: {
       src: `${NEXT_PUBLIC_URL}/park-2.png`,
     },
-    postUrl: `${NEXT_PUBLIC_URL}/api/buy`,
     state: {
       meet: false,
     },

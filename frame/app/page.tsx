@@ -9,7 +9,7 @@ const frameMetadata = getFrameMetadata({
     },
   ],
   image: {
-    src: `${NEXT_PUBLIC_URL}/park-3.png`,
+    src: `https://bafkreifph57rtckby5opzrzbyxmtc74xww4teitzumwu24jue4gqjljgbq.ipfs.nftstorage.link/`,
     aspectRatio: '1:1',
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'frames',
     description: 'personalized content frame',
-    images: [`${NEXT_PUBLIC_URL}/park-1.png`],
+    images: ["https://bafkreifph57rtckby5opzrzbyxmtc74xww4teitzumwu24jue4gqjljgbq.ipfs.nftstorage.link/"],
   },
   other: {
     ...frameMetadata,
