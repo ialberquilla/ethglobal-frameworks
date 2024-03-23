@@ -13,3 +13,6 @@ export const USDC_CONTRACT = '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174';
 export const RPC_ENDPOINT = process.env.NEXT_PUBLIC_RPC_ENDPOINT || '';
 export const PINATA_API_KEY = process.env.NEXT_PUBLIC_PINATA_API_KEY || '';
 export const TOKEN_ADDRESSES = process.env.NEXT_PUBLIC_TOKENS_NEEDED || '';
+export const PRIVY_APP_ID = process.env.NEXT_PUBLIC_PRIVY_APP_ID || '';
+export const PRIVY_APP_SECRET = process.env.NEXT_PUBLIC_PRIVY_APP_SECRET || '';
+export const PRIVY_API_URL = process.env.NEXT_PUBLIC_PRIVY_API_URL || '';
