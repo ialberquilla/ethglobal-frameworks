@@ -6,14 +6,14 @@ import "hardhat/console.sol";
 import {NFTAsset} from "./NFTAsset.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-contract Stake {
+contract Marketplace {
 
     address public nftAsset;
     address public usdcAddress;
 
     constructor(
         address _nftAsset,
-        address _usdcAddress,
+        address _usdcAddress
     ) {
         nftAsset = _nftAsset;
         usdcAddress = _usdcAddress;
@@ -23,12 +23,12 @@ contract Stake {
         address indexed buyer,
         address asset,
         uint256 discount,
-        uint256 price
+        uint256 price,
         string frameId
     );
 
 
-    function buyAsset(address asset, uint256 discount, uint256 price, stream memory frameId) public {
+    function buyAsset(address asset, uint256 discount, uint256 price, string memory frameId) public {
         NFTAsset nft = NFTAsset(nftAsset);
         IERC20 usdc = IERC20(usdcAddress);
 
