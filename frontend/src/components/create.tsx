@@ -5,6 +5,7 @@ import { Select } from "./createFrame/select"
 import { Configure } from "./createFrame/configure"
 import { Pricing } from "./createFrame/pricing"
 import { Review } from "./createFrame/review"
+import { Charts } from "./analytics/charts"
 
 
 export function Create() {
@@ -20,13 +21,14 @@ export function Create() {
     const [assetCondition, setAssetCondition] = useState("")
     const [assetElse, setAssetElse] = useState("")
     const [discount, setDiscount] = useState(0)
+    const [view, setView] = useState(0)
 
 
     return (
         <section className="w-full bg-white">
-            <Header />
-            {step === 0 && <Select setStep={setStep} />}
-            {step === 1 && <Configure setStep={setStep}
+            <Header setView={setView} />
+            {view === 0 && step === 0 && <Select setStep={setStep} />}
+            {view === 0 && step === 1 && <Configure setStep={setStep}
                 setErc20Conditions={setErc20Conditions}
                 setNftConditions={setNFTConditions}
                 erc20Conditions={erc20Conditions}
@@ -36,14 +38,14 @@ export function Create() {
                 setElseImage={setElseImage}
                 setFrameName={setFrameName}
             />}
-            {step === 2 && <Pricing setStep={setStep}
+            {view === 0 && step === 2 && <Pricing setStep={setStep}
                 setAssetConditionPrice={setAssetConditionPrice}
                 setElsePrice={setAssetElsePrice}
                 setAssetCondition={setAssetCondition}
                 setAssetElse={setAssetElse}
                 setDiscount={setDiscount}
             />}
-            {step === 3 && <Review setStep={setStep}
+            {view === 0 && step === 3 && <Review setStep={setStep}
                 mainImage={mainImage}
                 conditionImage={conditionImage}
                 elseImage={elseImage}
@@ -56,6 +58,7 @@ export function Create() {
                 frameName={frameName}
                 discount={discount}
             />}
+            {view === 1 && <Charts />}
         </section>
     )
 }
