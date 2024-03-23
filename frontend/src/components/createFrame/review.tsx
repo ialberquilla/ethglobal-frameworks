@@ -36,8 +36,13 @@ export function Review(
   const handleCreate = async () => {
     setModalOpen(true)
 
-    const cid = await pinFileToIPFS(mainImage)
-    console.log({cid})
+    const mainImageRespose = await pinFileToIPFS(mainImage)
+    const conditionImageRespose = await pinFileToIPFS(conditionImage)
+    const elseImageRespose = await pinFileToIPFS(elseImage)
+
+    const tokenAddresses = [
+      ...erc20Conditions.map(condition => condition.address),
+      ...nftConditions.map(condition => condition.address)]
   }
 
   return (
