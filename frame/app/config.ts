@@ -16,3 +16,6 @@ export const TOKEN_ADDRESSES = process.env.NEXT_PUBLIC_TOKENS_NEEDED || '';
 export const PRIVY_APP_ID = process.env.NEXT_PUBLIC_PRIVY_APP_ID || '';
 export const PRIVY_APP_SECRET = process.env.NEXT_PUBLIC_PRIVY_APP_SECRET || '';
 export const PRIVY_API_URL = process.env.NEXT_PUBLIC_PRIVY_API_URL || '';
+export const MEET_CRITERIA_IMAGE_CID = process.env.NEXT_PUBLIC_MEET_CRITERIA_IMAGE_CID || 'bafkreidemh4ujxsc65e75ozlcnmnmzy3tmmiyumrvil3cdbbdkhn6li7iu';
+export const NOT_MEET_CRITERIA_IMAGE_CID = process.env.NEXT_PUBLIC_NOT_MEET_CRITERIA_IMAGE_CID || 'bafkreidgcj7ppayr7rl2xz2a3sk7yg2knmgacyh4i4y4w5rphus7uudhpi';
+export const MAIN_IMAGE_CID = process.env.NEXT_PUBLIC_MAIN_IMAGE_CID || 'bafkreifph57rtckby5opzrzbyxmtc74xww4teitzumwu24jue4gqjljgbq'

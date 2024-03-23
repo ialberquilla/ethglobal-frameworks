@@ -1,6 +1,6 @@
 import { getFrameMetadata } from '@coinbase/onchainkit/frame';
 import type { Metadata } from 'next';
-import { NEXT_PUBLIC_URL } from './config';
+import { MAIN_IMAGE_CID, NEXT_PUBLIC_URL } from './config';
 
 const frameMetadata = getFrameMetadata({
   buttons: [
@@ -9,7 +9,7 @@ const frameMetadata = getFrameMetadata({
     },
   ],
   image: {
-    src: `https://bafkreifph57rtckby5opzrzbyxmtc74xww4teitzumwu24jue4gqjljgbq.ipfs.nftstorage.link/`,
+    src: `https://${MAIN_IMAGE_CID}.ipfs.nftstorage.link/`,
     aspectRatio: '1:1',
   },
   postUrl: `${NEXT_PUBLIC_URL}/api/frame`,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'frames',
     description: 'personalized content frame',
-    images: ["https://bafkreifph57rtckby5opzrzbyxmtc74xww4teitzumwu24jue4gqjljgbq.ipfs.nftstorage.link/"],
+    images: [`https://${MAIN_IMAGE_CID}.ipfs.nftstorage.link/`],
   },
   other: {
     ...frameMetadata,

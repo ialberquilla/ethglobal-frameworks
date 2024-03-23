@@ -1,6 +1,6 @@
 import { FrameRequest, getFrameHtmlResponse, getFrameMessage } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
-import { NEXT_PUBLIC_URL, NEYNAR_API_KEY, TOKEN_ADDRESSES } from '../../config';
+import { MEET_CRITERIA_IMAGE_CID, NEXT_PUBLIC_URL, NEYNAR_API_KEY, NOT_MEET_CRITERIA_IMAGE_CID, TOKEN_ADDRESSES } from '../../config';
 import { getVerifiedAddresses } from '../../lib/neynar';
 import { isValidAddress } from '../../lib/validation';
 import { createOrFindEmbeddedWalletForFid } from '../../lib/wallet';
@@ -27,7 +27,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       },
     ],
     image: {
-      src: `https://bafkreidemh4ujxsc65e75ozlcnmnmzy3tmmiyumrvil3cdbbdkhn6li7iu.ipfs.nftstorage.link/`,
+      src: `https://${MEET_CRITERIA_IMAGE_CID}.ipfs.nftstorage.link/`,
     },
     postUrl: `${NEXT_PUBLIC_URL}/api/buy`,
     state: {
@@ -42,7 +42,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       },
     ],
     image: {
-      src: `https://bafkreidgcj7ppayr7rl2xz2a3sk7yg2knmgacyh4i4y4w5rphus7uudhpi.ipfs.nftstorage.link/`,
+      src: `https://${NOT_MEET_CRITERIA_IMAGE_CID}.ipfs.nftstorage.link/`,
     },
     postUrl: `${NEXT_PUBLIC_URL}/api/buy`,
     state: {
