@@ -28,7 +28,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   const meet = await isValidAddress([...addresses, embeddedWallet], tokenAddresses);
 
-  // await sendAnalytics(FRAME_ID, message)
+  await sendAnalytics(FRAME_ID, body)
 
   const responseMeetCriteria = getFrameHtmlResponse({
     buttons: [

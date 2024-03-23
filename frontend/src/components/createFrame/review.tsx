@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { Confirmation } from "../modals/confirm"
+import { pinFileToIPFS } from "@/api/pinata"
 
 export function Review(
   { setStep,
@@ -32,6 +33,13 @@ export function Review(
 
   const [modalOpen, setModalOpen] = useState(false)
 
+  const handleCreate = async () => {
+    setModalOpen(true)
+
+    const cid = await pinFileToIPFS(mainImage)
+    console.log({cid})
+  }
+
   return (
 
     <main className="container mx-auto px-4 md:px-6 py-8">
@@ -51,7 +59,7 @@ export function Review(
               <div className="data">
                 <p className="font-semibold text-base leading-7 text-black mt-4">Frame name : <span className="text-gray-400 font-medium"> {frameName}</span></p>
               </div>
-              <button onClick={() => setModalOpen(true)} type="button" className="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+              <button onClick={handleCreate} type="button" className="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
                 Create
               </button>
             </div>

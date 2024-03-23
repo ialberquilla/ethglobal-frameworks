@@ -9,9 +9,10 @@ export const getUserDetails = async (fid: number): Promise<any> => {
 };
 
 export const sendAnalytics = async (frameId: string, frameData: any): Promise<any> => {
+
   const options = {
     method: 'POST',
-    headers: { Authorization: `Bearer ${PINATA_API_KEY}`, 'Content-Type': 'application/json' },
+    headers: { Authorization: `Bearer ${PINATA_JWT}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       custom_id: frameId,
       data: frameData,
