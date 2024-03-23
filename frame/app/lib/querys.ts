@@ -20,7 +20,7 @@ query Holdings ($addresses: [Identity!]!, $tokenAddress: [Address!]!) {
     Polygon: TokenBalances(
       input: {filter: {
         owner: {_in: $addresses}, 
-        tokenAddress: {_in: tokenAddress}}, blockchain: polygon, limit: 1}
+        tokenAddress: {_in: $tokenAddress}}, blockchain: polygon, limit: 1}
     ) {
       TokenBalance {
         owner {
@@ -37,7 +37,7 @@ query Holdings ($addresses: [Identity!]!, $tokenAddress: [Address!]!) {
     Zora: TokenBalances(
         input: {filter: {
           owner: {_in: $addresses}, 
-          tokenAddress: {_in: tokenAddress}}, blockchain: zora, limit: 1}
+          tokenAddress: {_in: $tokenAddress}}, blockchain: zora, limit: 1}
       ) {
         TokenBalance {
           owner {

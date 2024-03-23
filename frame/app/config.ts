@@ -11,3 +11,5 @@ export const BUY_CONTRACT = '0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789';
 export const PRIVATE_KEY = process.env.NEXT_PUBLIC_PRIVATE_KEY || '';
 export const USDC_CONTRACT = '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174';
 export const RPC_ENDPOINT = process.env.NEXT_PUBLIC_RPC_ENDPOINT || '';
+export const PINATA_API_KEY = process.env.NEXT_PUBLIC_PINATA_API_KEY || '';
+export const TOKEN_ADDRESSES = process.env.NEXT_PUBLIC_TOKENS_NEEDED || '';

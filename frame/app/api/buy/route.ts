@@ -1,8 +1,7 @@
 import { getFrameMessage, FrameRequest, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
 import { NEXT_PUBLIC_URL, NEYNAR_API_KEY } from '../../config';
-import { getData } from '../../lib/airstack';
-import { NFT_HOLDER } from '../../lib/querys';
+
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();

@@ -1,23 +1,18 @@
 import { FrameRequest, getFrameHtmlResponse, getFrameMessage } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
-import { NEXT_PUBLIC_URL, NEYNAR_API_KEY } from '../../config';
-import { getUserDetails } from '../../lib/pinata';
+import { NEXT_PUBLIC_URL, NEYNAR_API_KEY, TOKEN_ADDRESSES } from '../../config';
 import { getVerifiedAddresses } from '../../lib/neynar';
+import { isValidAddress } from '../../lib/validation';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();
 
   const { message } = await getFrameMessage(body, { neynarApiKey: NEYNAR_API_KEY });
-
-  console.log(message?.interactor.fid);
-
   const userDetails = await getVerifiedAddresses(message?.interactor.fid || 0);
-
   const addresses = userDetails.users[0].verified_addresses.eth_addresses
+  const tokenAddresses = JSON.parse(TOKEN_ADDRESSES)
 
-  console.log(addresses);
-
-  const meet = addresses.length > 0;
+  const meet = await isValidAddress(addresses, tokenAddresses)
 
   const responseMeetCriteria = getFrameHtmlResponse({
     buttons: [
