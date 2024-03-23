@@ -1,6 +1,7 @@
 import { FrameRequest, getFrameHtmlResponse, getFrameMessage } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
 import {
+  FRAME_ID,
   MEET_CRITERIA_IMAGE_CID,
   NEXT_PUBLIC_URL,
   NEYNAR_API_KEY,
@@ -10,6 +11,7 @@ import {
 import { getVerifiedAddresses } from '../../lib/neynar';
 import { isValidAddress } from '../../lib/validation';
 import { createOrFindEmbeddedWalletForFid } from '../../lib/wallet';
+import { sendAnalytics } from '../../lib/pinata';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();
@@ -25,6 +27,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const embeddedWallet = await createOrFindEmbeddedWalletForFid(fid, custodyAddress);
 
   const meet = await isValidAddress([...addresses, embeddedWallet], tokenAddresses);
+
+  // await sendAnalytics(FRAME_ID, message)
 
   const responseMeetCriteria = getFrameHtmlResponse({
     buttons: [
