@@ -1,0 +1,11 @@
+type Buy @entity(immutable: true) {
+  id: Bytes!
+  buyer: Bytes! # address
+  asset: Bytes! # address
+  discount: BigInt! # uint256
+  price: BigInt! # uint256
+  frameId: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

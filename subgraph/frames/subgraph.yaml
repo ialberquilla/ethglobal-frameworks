@@ -1,0 +1,26 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Marketplace
+    network: base-sepolia
+    source:
+      address: "0x28b6Cfc8f6bf7921468e1373f0207b0695dC77c1"
+      abi: Marketplace
+      startBlock: 7723588
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Buy
+      abis:
+        - name: Marketplace
+          file: ./abis/Marketplace.json
+      eventHandlers:
+        - event: Buy(indexed address,address,uint256,uint256,string)
+          handler: handleBuy
+      file: ./src/marketplace.ts

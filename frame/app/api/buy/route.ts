@@ -1,6 +1,6 @@
 import { getFrameMessage, FrameRequest, getFrameHtmlResponse } from '@coinbase/onchainkit/frame';
 import { NextRequest, NextResponse } from 'next/server';
-import { NEXT_PUBLIC_URL, NEYNAR_API_KEY } from '../../config';
+import { NEXT_PUBLIC_URL, NEYNAR_API_KEY, txID } from '../../config';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();
@@ -21,8 +21,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
       {
         action: 'link',
         label: `See transaction details`,
-        target:
-          'https://sepolia.basescan.org/tx/0x082545081884b7b729d528c46e4988929b3f1a2a1735d833c3ac21d589132704',
+        target:`https://sepolia.basescan.org/tx/${txID}`,
       },
     ],
     image: { 
