@@ -73,3 +73,21 @@ export const UNISWAP_SWAPS = `
   }
 }
 `
+
+export const LAST_TX = `
+{
+  buys(
+    orderBy: blockTimestamp
+    orderDirection:desc
+    first:1
+  ){
+    id
+    buyer
+    asset
+    discount
+    price
+    frameId
+    transactionHash
+  }
+}
+`
