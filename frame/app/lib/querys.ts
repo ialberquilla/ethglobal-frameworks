@@ -53,3 +53,23 @@ query Holdings ($addresses: [Identity!]!, $tokenAddress: [Address!]!) {
       }
   }
 `
+
+export const AAVE_DEPOSITS = `
+{
+  deposits(
+    where: {account:$account}
+  ){
+    id
+  }
+}
+`
+
+export const UNISWAP_SWAPS = `
+{
+  swaps(
+    where: {sender:$sender}
+  ){
+    id
+  }
+}
+`

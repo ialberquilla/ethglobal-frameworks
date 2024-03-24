@@ -22,6 +22,7 @@ export function Create() {
     const [assetElse, setAssetElse] = useState("")
     const [discount, setDiscount] = useState(0)
     const [view, setView] = useState(0)
+    const [protocolConditions, setProtocolConditions] = useState([])
 
 
     return (
@@ -37,6 +38,8 @@ export function Create() {
                 setConditionImage={setConditionImage}
                 setElseImage={setElseImage}
                 setFrameName={setFrameName}
+                protocolConditions={protocolConditions}
+                setProtocolConditions={setProtocolConditions}
             />}
             {view === 0 && step === 2 && <Pricing setStep={setStep}
                 setAssetConditionPrice={setAssetConditionPrice}

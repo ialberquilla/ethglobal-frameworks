@@ -21,3 +21,5 @@ export const MEET_CRITERIA_IMAGE_CID = process.env.NEXT_PUBLIC_MEET_CRITERIA_IMA
 export const NOT_MEET_CRITERIA_IMAGE_CID = process.env.NEXT_PUBLIC_NOT_MEET_CRITERIA_IMAGE_CID || 'bafkreidgcj7ppayr7rl2xz2a3sk7yg2knmgacyh4i4y4w5rphus7uudhpi';
 export const MAIN_IMAGE_CID = process.env.NEXT_PUBLIC_MAIN_IMAGE_CID || 'bafkreifph57rtckby5opzrzbyxmtc74xww4teitzumwu24jue4gqjljgbq'
 export const FRAME_ID = process.env.NEXT_PUBLIC_FRAME_ID || '1';
+export const AAVE_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/messari/aave-v3-polygon'
+export const UNISWAP_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/gundamdweeb/uniswap-v3-mainnet'

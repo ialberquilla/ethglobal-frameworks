@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { useState } from "react"
 import { AddCondition } from "../modals/addCondition"
+import { AddProtocolCondition } from "../modals/addProtocolCondition"
 
 export function Configure({
   setStep,
@@ -11,7 +12,9 @@ export function Configure({
   setMainImage,
   setConditionImage,
   setElseImage,
-  setFrameName
+  setFrameName,
+  protocolConditions,
+  setProtocolConditions
 }: {
   setStep: (step: number) => void,
   setErc20Conditions: any,
@@ -22,9 +25,12 @@ export function Configure({
   setConditionImage: any,
   setElseImage: any,
   setFrameName: any
+  protocolConditions: any,
+  setProtocolConditions: any
 }) {
 
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpenProtocols, setIsModalOpenProtocols] = useState(false)
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>, type: string) => {
     const file = event.target.files[0];
@@ -99,8 +105,12 @@ export function Configure({
         </label>
         <div className="grid grid-cols-1 gap-4">
           <div className="flex items-center gap-2">
-            <label className="block text-lg font-semibold mb-2" htmlFor="imageUploadElse">Add condition</label>
+            <label className="block text-lg font-semibold mb-2" htmlFor="imageUploadElse">Add Token condition</label>
             <button className="bg-blue-500 text-white px-4 py-2 rounded-lg" onClick={() => setIsModalOpen(true)}>+</button>
+          </div>
+          <div className="flex items-center gap-2">
+            <label className="block text-lg font-semibold mb-2" htmlFor="imageUploadElse">Add protocol condition</label>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg" onClick={() => setIsModalOpenProtocols(true)}>+</button>
           </div>
         </div>
         <ul className="max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400">
@@ -118,6 +128,14 @@ export function Configure({
                 <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
               </svg>
               {`One ${condition.address} NFT in ${condition.blockchain} blockchain`}
+            </li>
+          ))}
+          {protocolConditions.map((condition, index) => (
+            <li key={index} className="flex items-center">
+              <svg className="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+              </svg>
+              {`One ${condition.type} in ${condition.blockchain} on protocol ${condition.protocol}`}
             </li>
           ))}
         </ul>
@@ -148,6 +166,11 @@ export function Configure({
         erc20Conditions={erc20Conditions}
         nftConditions={nftConditions}
         setNftConditions={setNftConditions} />
+      <AddProtocolCondition
+        isOpen={isModalOpenProtocols}
+        setIsOpen={setIsModalOpenProtocols}
+        setProtocolConditions={setProtocolConditions}
+        protocolConditions={protocolConditions} />
     </main>
   )
 }
