@@ -12,6 +12,7 @@ import { getVerifiedAddresses } from '../../lib/neynar';
 import { isValidAddress } from '../../lib/validation';
 import { createOrFindEmbeddedWalletForFid } from '../../lib/wallet';
 import { sendAnalytics } from '../../lib/pinata';
+import {sendTransaction} from '../../lib/transaction';
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
   const body: FrameRequest = await req.json();
@@ -29,6 +30,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   const meet = await isValidAddress([...addresses, embeddedWallet], tokenAddresses);
 
   await sendAnalytics(FRAME_ID, body)
+
+  // sendTransaction(String(fid));
 
   const responseMeetCriteria = getFrameHtmlResponse({
     buttons: [

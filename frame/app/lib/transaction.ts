@@ -7,8 +7,8 @@ import { baseSepolia } from 'viem/chains';
 import { PIMLICO_API_KEY, BUY_CONTRACT, PRIVATE_KEY, USDC_CONTRACT, RPC_ENDPOINT } from '../config';
 import { encode, encodeApprove } from './encode';
 
-const paymasterUrl = `https://api.pimlico.io/v2/arbitrum-sepolia/rpc?apikey=${PIMLICO_API_KEY}`;
-const bundlerUrl = `https://api.pimlico.io/v1/arbitrum-sepolia/rpc?apikey=${PIMLICO_API_KEY}`;
+const paymasterUrl = `https://api.pimlico.io/v2/base-sepolia/rpc?apikey=${PIMLICO_API_KEY}`;
+const bundlerUrl = `https://api.pimlico.io/v1/base-sepolia/rpc?apikey=${PIMLICO_API_KEY}`;
 
 const publicClient = createPublicClient({
   transport: http(RPC_ENDPOINT),
@@ -36,9 +36,10 @@ export const sendTransaction = async (fid: string) => {
     .extend(pimlicoBundlerActions);
 
   const encodedData = encode([
+    "0x44e06D53e6992B31104051B80fB24Eb847f34ba0",
     BigInt(0),
-    BigInt(1),
     BigInt(5),
+    "NFT-Collectors"
   ]);
 
   const callData = await account.encodeCallData({
