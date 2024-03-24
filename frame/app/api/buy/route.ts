@@ -25,8 +25,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
           'https://sepolia.basescan.org/tx/0x082545081884b7b729d528c46e4988929b3f1a2a1735d833c3ac21d589132704',
       },
     ],
-    image: {
-      src: `${NEXT_PUBLIC_URL}/park-2.png`,
+    image: { 
+      src: `https://bafkreicwnrmmzxj6za7dnuuz3y4ljufwfaoiakq4d2ughstuyfkg3yetom.ipfs.nftstorage.link/`,
       aspectRatio: '1:1',
     },
     state: {
