@@ -24,4 +24,4 @@ export const FRAME_ID = process.env.NEXT_PUBLIC_FRAME_ID || '1';
 export const AAVE_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/messari/aave-v3-polygon'
 export const UNISWAP_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/gundamdweeb/uniswap-v3-mainnet'
 export const txID = process.env.NEXT_PUBLIC_TX_ID;
-export const SUBGRAPH_ENDPOINT = 'https://api.studio.thegraph.com/query/47837/frames/v0.0.1'
+export const SUBGRAPH_ENDPOINT = 'https://gateway-testnet-arbitrum.network.thegraph.com/subgraphs/id/CCgfFsDR5YQgKr3uu3iNFW6EjCp8cqxKLxfqwA4ZNqQc'
